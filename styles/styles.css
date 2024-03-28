@@ -1,35 +1,48 @@
 body {
-   margin: 0;
-   font-family: Arial, sans-serif;
- }
- .gallery-container {
-   display: flex;
-   flex-wrap: wrap;
-   padding: 8px;
-   justify-content: center;
- }
- .photo {
-   flex-basis: 24%; /* Adjusts the base width for each photo */
-   margin: 0.5%; /* Adds a small margin around each photo */
-   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow around each photo */
-   transition: transform 0.2s ease-in-out; /* Smooth transformation on hover */
- }
- .photo:hover {
-   transform: scale(1.05); /* Scales up the photo slightly on hover */
- }
- .photo img {
-   width: 100%; /* Makes the image fill the container */
-   height: auto; /* Keeps the image aspect ratio */
-   vertical-align: middle; /* Aligns the image vertically */
- }
- @media (max-width: 768px) {
-   .photo {
-     flex-basis: 49%; /* Adjusts the base width for each photo on smaller screens */
-   }
- }
- @media (max-width: 480px) {
-   .photo {
-     flex-basis: 100%; /* Each photo takes full width on very small screens */
-   }
- }
- 
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif; /* Updated font family for a more modern look */
+  background-color: #f0f0f0; /* Light grey background for better contrast */
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Switched to a grid layout for better responsiveness */
+  gap: 10px; /* Adjusted gap for a cleaner look */
+  padding: 10px;
+  justify-content: center; /* Centering the gallery for better alignment */
+}
+
+.photo {
+  position: relative; /* Position relative for potential overlays or additional content */
+  overflow: hidden; /* Ensures content does not overflow */
+  border-radius: 5px; /* Rounded corners for a softer look */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Enhanced shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both transform and shadow */
+}
+
+.photo:hover {
+  transform: translateY(-5px); /* Slight upward lift on hover */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Increased shadow for hover effect */
+}
+
+.photo img {
+  width: 100%; /* Ensures image fills the container */
+  height: auto; /* Maintains aspect ratio */
+  transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+.photo:hover img {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusts for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-container {
+    grid-template-columns: 1fr; /* Single column layout for small screens */
+  }
+}
