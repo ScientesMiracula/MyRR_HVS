@@ -1,0 +1,35 @@
+body {
+   margin: 0;
+   font-family: Arial, sans-serif;
+ }
+ .gallery-container {
+   display: flex;
+   flex-wrap: wrap;
+   padding: 8px;
+   justify-content: center;
+ }
+ .photo {
+   flex-basis: 24%; /* Adjusts the base width for each photo */
+   margin: 0.5%; /* Adds a small margin around each photo */
+   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow around each photo */
+   transition: transform 0.2s ease-in-out; /* Smooth transformation on hover */
+ }
+ .photo:hover {
+   transform: scale(1.05); /* Scales up the photo slightly on hover */
+ }
+ .photo img {
+   width: 100%; /* Makes the image fill the container */
+   height: auto; /* Keeps the image aspect ratio */
+   vertical-align: middle; /* Aligns the image vertically */
+ }
+ @media (max-width: 768px) {
+   .photo {
+     flex-basis: 49%; /* Adjusts the base width for each photo on smaller screens */
+   }
+ }
+ @media (max-width: 480px) {
+   .photo {
+     flex-basis: 100%; /* Each photo takes full width on very small screens */
+   }
+ }
+ 
